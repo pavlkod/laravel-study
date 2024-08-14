@@ -8,8 +8,7 @@
 </head>
 
 <body>
-    Test <a href="<?= url('/') ?>">Main</a><br />
-    <a href="<?= route('test.id', ['id' => 3]) ?>">Link</a>
+    Test {{ id }}
 </body>
 
 </html>
