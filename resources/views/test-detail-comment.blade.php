@@ -8,8 +8,7 @@
 </head>
 
 <body>
-    Test { id }
-    <a href="<?= route('test.id.comment', [1, 2]) ?>">comment</a>
+    Test comment
 </body>
 
 </html>
