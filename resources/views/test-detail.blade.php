@@ -9,7 +9,7 @@
 
 <body>
     Test { id }
-    <a href="<?= route('test.id.comment', [1, 2]) ?>">comment</a>
+    <a href="<?= route('test.id.comment', [1, 2, 'z' => 3]) ?>">comment</a>
 </body>
 
 </html>
