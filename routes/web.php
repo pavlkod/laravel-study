@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,16 +8,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::group([], function () {
+    Route::get('/test', function () {
+        return view('test');
+    });
+
+    Route::get('/test/{id}', function ($id) {
+        return view('test-detail', ['id' => $id]);
+    })->name('test.id');
+
+    Route::get('/test/{id}/comments/{comment}', function ($id) {
+        echo $id;
+        return view('test-detail-comment');
+    })->name('test.id.comment');
 });
-
-Route::get('/test/{id}', function ($id) {
-    echo $id;
-    return view('test-detail', ['id' => $id]);
-})->name('test.id');
-
-Route::get('/test/{id}/comments/{comment}', function ($id) {
-    echo $id;
-    return view('test-detail-comment');
-})->name('test.id.comment');
