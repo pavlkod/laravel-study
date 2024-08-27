@@ -22,3 +22,12 @@ Route::group([], function () {
         return view('test-detail-comment');
     })->name('test.id.comment');
 });
+
+Route::group([], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+    Route::get('/account', function () {
+        return view('account');
+    });
+});
