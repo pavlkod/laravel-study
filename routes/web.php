@@ -23,7 +23,7 @@ Route::group([], function () {
     })->name('test.id.comment');
 });
 
-Route::group([], function () {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     });
