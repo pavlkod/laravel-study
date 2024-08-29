@@ -31,3 +31,15 @@ Route::middleware('auth')->group(function () {
         return view('account');
     });
 });
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
+    Route::get('/account', function () {
+        return view('account');
+    });
+});
+
+Route::fallback(function () {
+    return 123;
+});
