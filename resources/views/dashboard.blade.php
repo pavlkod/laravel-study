@@ -1,3 +1,7 @@
+<?php
+
+use Illuminate\Support\Facades\URL;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +12,8 @@
 </head>
 
 <body>
-    Dashboard
+    Dashboard - {{ now() }}
+    <a href="{{ URL::signedRoute('test.id.comment', [1, 2]); }}">Test</a>
 </body>
 
 </html>
