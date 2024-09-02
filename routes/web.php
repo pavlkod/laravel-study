@@ -10,7 +10,16 @@ Route::get('/', function () {
 
 Route::group([], function () {
     Route::get('/test', function () {
-        return view('test');
+        return view('test')->with([
+            'items' => [
+                [
+                    'name' => 'user'
+                ],
+                [
+                    'name' => 'admin'
+                ]
+            ]
+        ]);
     });
 
     Route::get('/test/{id}', function ($id) {
