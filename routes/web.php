@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    echo 123;
-    return view('welcome');
-});
+Route::view('/', 'welcome', ['User' => 'Admin']);
+
 
 Route::group([], function () {
     Route::get('/test', function () {
