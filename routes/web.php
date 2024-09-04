@@ -47,6 +47,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     });
 });
 
+Route::get('/tasks', 'App\Http\Controllers\TasksController@index');
+
 Route::fallback(function () {
     return 123;
 });
