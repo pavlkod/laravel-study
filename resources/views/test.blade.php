@@ -9,6 +9,7 @@
 
 <body>
     Test <a href="<?= url('/') ?>">Main</a><br />
+    <? print_r($items) ?>
     <a href="<?= route('test.id', ['id' => 3]) ?>">Link</a>
 </body>
 
