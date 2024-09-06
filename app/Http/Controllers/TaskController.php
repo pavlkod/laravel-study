@@ -27,7 +27,9 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 123;
+        Post::create($request->only(['title', 'description']));
+        return redirect('tasks');
     }
 
     /**
