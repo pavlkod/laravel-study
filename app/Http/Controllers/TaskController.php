@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -53,7 +54,8 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        echo $id;
+        return 'zzz';
     }
 
     /**
