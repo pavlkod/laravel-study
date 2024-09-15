@@ -23,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
         // view()->share('recentPosts', Post::recent());
         // global $recentPosts for all views
 
+        /* Blade::directive('ifGuest', function () {
+            return "<?php if (auth()->guest()): ?>";
+        });  */
+        // add @ifGuest directive
+
         //Blade::component('partials.modal', 'modal');
         /*   <!-- в шаблоне -->
         @modal
