@@ -23,6 +23,14 @@ class AppServiceProvider extends ServiceProvider
         // view()->share('recentPosts', Post::recent());
         // global $recentPosts for all views
 
+        //2
+        /* view()->composer(
+            ['partials. header', 'partials. footer'],
+            function ($view) {
+                $view->with('recentPosts', Post::recent());
+            }
+        ); */
+
         /* Blade::directive('ifGuest', function () {
             return "<?php if (auth()->guest()): ?>";
         });  */
