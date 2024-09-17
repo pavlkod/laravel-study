@@ -31,6 +31,12 @@ class AppServiceProvider extends ServiceProvider
             }
         ); */
 
+        // Привязка
+        /* Blade::if('ifPubic', function () {
+            return (app('context'))->isPublic();
+        });  */
+        // add @ifPubic directive
+
         /* Blade::directive('ifGuest', function () {
             return "<?php if (auth()->guest()): ?>";
         });  */
