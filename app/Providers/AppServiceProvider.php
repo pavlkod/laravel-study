@@ -42,6 +42,13 @@ class AppServiceProvider extends ServiceProvider
         });  */
         // add @ifGuest directive
 
+        // Связывание
+        /* Blade: :directive('newlinesToBr', function ($expression) {
+            return "<?php echo nl2br({$expression}); ?>";
+        });
+        // В использовании
+        <p>@newlinesToBr($message->body)</p>  */
+
         //Blade::component('partials.modal', 'modal');
         /*   <!-- в шаблоне -->
         @modal
