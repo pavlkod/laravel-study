@@ -21,10 +21,15 @@ return new class extends Migration
             $table->timestamps();
             // внешний ключ, ссылается на поле id таблицы users
             $table->foreign('author_id')
-                  ->references('id')
-                  ->on('users')
-                  ->nullOnDelete();
+                ->references('id')
+                ->on('users')
+                ->nullOnDelete();
         });
+
+        //update
+        /* Schema::table('users', function (Blueprint $tаblе) {
+            $tаblе->string('email')->nullable()->after('last_name');
+        });  */
     }
 
     /**
