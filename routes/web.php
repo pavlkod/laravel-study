@@ -46,6 +46,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         return view('account');
     });
 });
+// Route:: redirect( 'redirect-by-route', 'logiп');
 
 Route::get('/tasks', 'App\Http\Controllers\TasksController@index');
 
