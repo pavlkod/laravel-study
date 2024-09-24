@@ -30,7 +30,7 @@ class TaskController extends Controller
     {
         return 123;
         Post::create($request->only(['title', 'description']));
-        return redirect('tasks');
+        return redirect('tasks')->with(['error' => true, 'message' => 'Whoops! ']);;
     }
 
     /**
