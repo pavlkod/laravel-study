@@ -30,6 +30,15 @@ class TaskController extends Controller
     {
         return 123;
         Post::create($request->only(['title', 'description']));
+
+        //or
+        // Создать и сохранить новый контакт из ввода пользователя
+        $contact = new Contact();
+        $contact->first_name = $request->input('first_name');
+        $contact->last_name = $request->input('last_name');
+        $contact->email = $request->input('email');
+        $contact->save();
+        //or
         return redirect('tasks')->with(['error' => true, 'message' => 'Whoops! ']);;
     }
 
