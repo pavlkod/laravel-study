@@ -54,5 +54,11 @@ class AppServiceProvider extends ServiceProvider
         @modal
         Modal content here
         @endmodal  */
+
+        //3
+        /* view()->composer(
+            'partials.sidebar',
+            \App\Http\Viewcomposers\RecentPostsComposer::class
+        ); */
     }
 }
