@@ -28,4 +28,11 @@ class Post extends Model
 
     //or
     // static::addGlobalScope(new ActiveScope);
+
+
+    // acsessor for $post->name (field name)
+    public function getNameAttribute($value)
+    {
+        return $value ?: '(No name provided)';
+    }
 }
