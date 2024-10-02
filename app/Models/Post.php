@@ -11,6 +11,11 @@ class Post extends Model
 {
     use HasFactory;
 
+    // auto convert to timestamp (ex. created_at)
+    protected $dates = [
+        'met_at',
+    ];
+
     //add local scope Post::ActiveVips()->get()
     public function scopeActiveVips($query)
     {
