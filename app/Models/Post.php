@@ -40,4 +40,10 @@ class Post extends Model
     {
         return $value ?: '(No name provided)';
     }
+
+    //or acsessor for $post->full_name (field fullName doesn't exists)
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
