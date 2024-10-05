@@ -46,4 +46,10 @@ class Post extends Model
     {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    // mutator $post->amount = '15'
+    public function setAmountAttribute($value)
+    {
+        $this->attributes['amount'] = $value > 0 ? $value : 0;
+    }
 }
