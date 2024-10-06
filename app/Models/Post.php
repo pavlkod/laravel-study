@@ -52,4 +52,10 @@ class Post extends Model
     {
         $this->attributes['amount'] = $value > 0 ? $value : 0;
     }
+
+    // or proxy $post->workgroup_name = 'jstott';
+    public function setWorkgroupNameAttribute($workgroupName)
+    {
+        $this->attributes['email'] = "{$workgroupName}@ourcompany.com";
+    }
 }
