@@ -16,6 +16,9 @@ class Post extends Model
         'met_at',
     ];
 
+
+    // for acessor getFullNameAttribute toArray|toJson
+    protected $appends = ['full_name'];
     //add local scope Post::ActiveVips()->get()
     public function scopeActiveVips($query)
     {
