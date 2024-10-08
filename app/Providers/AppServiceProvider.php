@@ -60,5 +60,16 @@ class AppServiceProvider extends ServiceProvider
             'partials.sidebar',
             \App\Http\Viewcomposers\RecentPostsComposer::class
         ); */
+
+        //creating event
+        /* $thirdPartyService = new SomeThirdPartyService;
+        Contact::creating(function ($contact) use ($thirdPartyService) {
+            try {
+                $thirdPartyService->addContact($contact);
+            } catch (Exception $е) {
+                Log::error('Failed adding contact to ThirdPartyService; canceled. ');
+                return false; //Отменяет create() Eloquent
+            }
+        }); */
     }
 }
