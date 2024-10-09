@@ -19,6 +19,10 @@ class Post extends Model
 
     // for acessor getFullNameAttribute toArray|toJson
     protected $appends = ['full_name'];
+
+    // when update invoke methods
+    protected $touches = ['contact'];
+
     //add local scope Post::ActiveVips()->get()
     public function scopeActiveVips($query)
     {
