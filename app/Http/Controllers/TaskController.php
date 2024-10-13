@@ -31,7 +31,11 @@ class TaskController extends Controller
         return 123;
         Post::create($request->only(['title', 'description']));
 
-        //or
+        $request->validate([
+            'title' => 'required|unique:recipes|max:125',
+            'body' => 'required',
+        ]);
+        // Рецепт действителен; продолжить, чтобы сохранить его
         // Создать и сохранить новый контакт из ввода пользователя
         $contact = new Contact();
         $contact->first_name = $request->input('first_name');
