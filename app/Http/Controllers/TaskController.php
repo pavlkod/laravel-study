@@ -68,6 +68,19 @@ class TaskController extends Controller
     public function update(Request $request, string $id)
     {
         echo $id;
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:recipes|max:125',
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('recipes/create')
+            ->withErrors($validator)
+            ->withinput();
+        }
+        // Рецепт действителен; продолжить, чтобы сохранить его
+
         return 'zzz';
     }
 
