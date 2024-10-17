@@ -13,7 +13,7 @@ class WelcomeNewUsers extends Command
      *
      * @var string
      */
-    protected $signature = 'email:newusers {test?}';
+    protected $signature = 'email:newusers {test?} {--test}';
 
     /**
      * The console command description.
@@ -36,6 +36,7 @@ class WelcomeNewUsers extends Command
     {
         echo 234;
         print_r($this->arguments());
+        print_r($this->options());
         // $this->userMailer->welcomeNewUsers();
     }
 }
