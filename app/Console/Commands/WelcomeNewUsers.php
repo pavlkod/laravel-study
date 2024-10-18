@@ -37,6 +37,13 @@ class WelcomeNewUsers extends Command
         echo 234;
         print_r($this->arguments());
         print_r($this->options());
+
+        $email = $this->ask('What is your email address?');
+        $password = $this->secret('What is the DB password?');
+        if ($this->confirm('Do you want to truncate the tables?')) {
+            $this->info('Your command has run successfully. ');
+        }
+
         // $this->userMailer->welcomeNewUsers();
     }
 }
