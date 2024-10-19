@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -12,7 +13,6 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -36,14 +36,17 @@ class TaskController extends Controller
             'body' => 'required',
         ]);
         // Рецепт действителен; продолжить, чтобы сохранить его
+
+        // or
         // Создать и сохранить новый контакт из ввода пользователя
-        $contact = new Contact();
-        $contact->first_name = $request->input('first_name');
-        $contact->last_name = $request->input('last_name');
-        $contact->email = $request->input('email');
-        $contact->save();
-        //or
-        return redirect('tasks')->with(['error' => true, 'message' => 'Whoops! ']);;
+        /*  $contact = new Contact();
+         $contact->first_name = $request->input('first_name');
+         $contact->last_name = $request->input('last_name');
+         $contact->email = $request->input('email');
+         $contact->save(); */
+
+        // or
+        return redirect('tasks')->with(['error' => true, 'message' => 'Whoops! ']);
     }
 
     /**
@@ -51,7 +54,6 @@ class TaskController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -59,7 +61,6 @@ class TaskController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
@@ -89,6 +90,5 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        //
     }
 }
