@@ -67,4 +67,10 @@ class Post extends Model
     {
         $this->attributes['email'] = "{$workgroupName}@ourcompany.com";
     }
+
+    // when call Post::all -> return OrderCollection instance instead Collection
+    public function newCollection(array $models = [])
+    {
+        // return new OrderCollection($models);
+    }
 }
