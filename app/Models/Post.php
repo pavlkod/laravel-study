@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-
-// use App\Scopes\ActiveScope;
 use App\Collections\OrderCollection;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use App\Scopes\ActiveScope;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
@@ -18,20 +17,19 @@ class Post extends Model
         'met_at',
     ];
 
-
     // for acessor getFullNameAttribute toArray|toJson
     protected $appends = ['full_name'];
 
     // when update invoke methods
     protected $touches = ['contact'];
 
-    //add local scope Post::ActiveVips()->get()
+    // add local scope Post::ActiveVips()->get()
     public function scopeActiveVips($query)
     {
         return $query->where('vip', true)->where('trial', false);
     }
 
-    //add global scope
+    // add global scope
     protected static function boot()
     {
         раrent::boot();
@@ -40,9 +38,8 @@ class Post extends Model
         });
     }
 
-    //or
+    // or
     // static::addGlobalScope(new ActiveScope);
-
 
     // acsessor for $post->name (field name)
     public function getNameAttribute($value)
@@ -50,10 +47,10 @@ class Post extends Model
         return $value ?: '(No name provided)';
     }
 
-    //or acsessor for $post->full_name (field fullName doesn't exists)
+    // or acsessor for $post->full_name (field fullName doesn't exists)
     public function getFullNameAttribute()
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return $this->first_name.' '.$this->last_name;
     }
 
     // mutator $post->amount = '15'
