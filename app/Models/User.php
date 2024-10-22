@@ -9,10 +9,12 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
+     * white list.
      *
      * @var array<int, string>
      */
@@ -21,6 +23,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    /*
+    * The attributes that are mass assignable.
+    * black list.
+    *
+    * @var array<int, string>
+    */
+    protected $guarded = ['author_id'];
 
     /**
      * The attributes that should be hidden for serialization.
