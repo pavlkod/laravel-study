@@ -13,6 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
+        echo 'index';
     }
 
     /**
