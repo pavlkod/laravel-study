@@ -3,21 +3,8 @@
 use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome', ['User' => 'Admin']);
-
-
-Route::group([], function () {
-    Route::get('/test', function () {
-        return view('test')->with([
-            'items' => [
-                [
-                    'name' => 'user'
-                ],
-                [
-                    'name' => 'admin'
-                ]
-            ]
-        ]);
+Route::get('/', function () {
+    return view('welcome');
     });
 
     Route::get('/test/{id}', function ($id) {
