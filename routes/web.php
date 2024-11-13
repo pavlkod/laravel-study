@@ -7,15 +7,9 @@ Route::get('/', function () {
     return view('welcome');
     });
 
-    Route::get('/test/{id}', function ($id) {
-        return view('test-detail', ['id' => $id]);
-    })->name('test.id');
-
-    Route::get('/test/{id}/comments/{comment}', function ($id) {
-        echo $id;
-        return view('test-detail-comment');
-    })->name('test.id.comment');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
