@@ -12,25 +12,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
-    Route::get('/account', function () {
-        return view('account');
-    });
-});
-Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    });
-    Route::get('/account', function () {
-        return view('account');
-    });
-});
-// Route:: redirect( 'redirect-by-route', 'logiп');
-
-Route::get('/tasks', 'App\Http\Controllers\TasksController@index');
-
-Route::fallback(function () {
-    return 123;
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
