@@ -14,6 +14,7 @@
         <!-- или: -->
         <!-- @method('DELETE') -->
         <!-- @csrf -->
+        <input name="username" value="<?= old('username', 'Default username instructions here'); ?>">
         <button type="submit">Send</button>
     </form>
 </body>
