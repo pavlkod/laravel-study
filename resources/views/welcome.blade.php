@@ -1058,6 +1058,61 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+
+                    use Illuminate\Container\Container;
+use Illuminate\Support\Facades\URL;
+
+                    interface ITest
+                    {
+                        public function log($mess);
+                    }
+
+                    class Test2 implements ITest
+                    {
+                        public function log($mess)
+                        {
+                            echo $mess ?? 333;
+                        }
+                    }
+
+                    class Test
+                    {
+                        private $test;
+                        public $mess;
+
+                        public function __construct(ITest $name, string $mess = 'mess')
+                        {
+                            // $this->test = $test;
+                            $this->test = $name;
+                            $this->mess = $mess;
+                        }
+
+                        public function test2()
+                        {
+                            $this->test->log($this->mess);
+                        }
+                    }
+                    /* $container = new Container();
+                    $container->bind(ITest::class, Test2::class);
+                    $container->alias(Test::class, 'tester'); */
+
+                    // $instance = $container->build(Test::class);
+                    // $instance = $container->build('tester');
+
+                    // $instance = $container->make(Test::class, ['mess' => 1]);
+
+                    app()->bind(ITest::class, Test2::class);
+                    app()->alias(Test::class, 'tester');
+                    // app()->bind('tester', fn () => new Test());
+
+                    $instance = app()->make('tester', ['mess' => 1]);
+                    // $instance = app()->build('tester', ['mess' => 1]);
+
+                    dump($instance);
+                    var_dump($instance->test2());
+
+                    ?>
                 </main>
 
                 <footer class="py-16 text-center text-sm text-black dark:text-white/70">
