@@ -29,6 +29,12 @@ class Post extends Model
         return $query->where('vip', true)->where('trial', false);
     }
 
+    //Post::status('friend')->orWhere()->activeVips()->get();
+    public function scopeStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
+
     // add global scope
     protected static function boot()
     {
