@@ -36,9 +36,8 @@ class Post extends Model
     }
 
     // add global scope
-    protected static function boot()
+    protected static function booted()
     {
-        раrent::boot();
         static::addGlobalScope('active', function (Builder $builder) {
             $builder->where('active', true);
         });
