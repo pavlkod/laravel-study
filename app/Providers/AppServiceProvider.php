@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //1
-        // view()->share('recentPosts', Post::recent());
+        view()->share('recentPosts', Post::recent());
         // global $recentPosts for all views
 
         //2
