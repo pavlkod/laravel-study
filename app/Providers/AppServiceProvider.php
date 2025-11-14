@@ -24,12 +24,12 @@ class AppServiceProvider extends ServiceProvider
         // global $recentPosts for all views
 
         //2
-        /* view()->composer(
+        view()->composer(
             ['partials. header', 'partials. footer'],
             function ($view) {
                 $view->with('recentPosts', Post::recent());
             }
-        ); */
+        );
 
         // Привязка
         /* Blade::if('ifPubic', function () {
