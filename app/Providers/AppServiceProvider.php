@@ -31,6 +31,12 @@ class AppServiceProvider extends ServiceProvider
             }
         );
 
+         //3
+        view()->composer(
+            'partials.sidebar',
+            \App\Http\Viewcomposers\RecentPostsComposer::class
+        );
+
         // Привязка
         /* Blade::if('ifPubic', function () {
             return (app('context'))->isPublic();
