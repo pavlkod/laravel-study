@@ -12,6 +12,8 @@ Route::get('/', [function () {
 Route::get('/', [WelcomeController::class, 'index']);
 
 Route::view('/', 'welcome');
+
+Route::get('/', function(){
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
