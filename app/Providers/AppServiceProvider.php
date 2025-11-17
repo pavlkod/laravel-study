@@ -68,14 +68,14 @@ class AppServiceProvider extends ServiceProvider
         ); */
 
         //creating event
-        /* $thirdPartyService = new SomeThirdPartyService;
-        Contact::creating(function ($contact) use ($thirdPartyService) {
+        $thirdPartyService = new SomeThirdPartyService;
+        Post::creating(function ($post) use ($thirdPartyService) {
             try {
-                $thirdPartyService->addContact($contact);
+                $thirdPartyService->addPost($post);
             } catch (Exception $е) {
-                Log::error('Failed adding contact to ThirdPartyService; canceled. ');
+                Log::error('Failed adding post to ThirdPartyService; canceled. ');
                 return false; //Отменяет create() Eloquent
             }
-        }); */
+        });
     }
 }
