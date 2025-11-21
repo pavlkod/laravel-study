@@ -47,9 +47,9 @@ class AppServiceProvider extends ServiceProvider
         });
         // add @ifPubic directive
 
-        /* Blade::directive('ifGuest', function () {
+        Blade::directive('ifGuest', function () {
             return "<?php if (auth()->guest()): ?>";
-        });  */
+        });
         // add @ifGuest directive
 
         // Связывание
