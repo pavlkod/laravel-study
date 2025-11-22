@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -65,11 +68,7 @@ class AppServiceProvider extends ServiceProvider
         Modal content here
         @endmodal  */
 
-        //3
-        /* view()->composer(
-            'partials.sidebar',
-            \App\Http\Viewcomposers\RecentPostsComposer::class
-        ); */
+
 
         //creating event
         $thirdPartyService = new SomeThirdPartyService;
