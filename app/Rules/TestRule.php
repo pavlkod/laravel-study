@@ -5,6 +5,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Support\Str;
 
 class TestRule implements ValidationRule
 {
@@ -15,6 +16,8 @@ class TestRule implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
-        // in_array(\str_after($value, '@'), ['tighten.co']);
+        if (!in_array(Str::after($value, '@'), ['tighten.co'])) {
+            $fail('The :attribute field is not from an allowed email provider.');
+        }
     }
 }
