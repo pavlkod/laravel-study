@@ -13,7 +13,7 @@ class WelcomeNewUsers extends Command
      *
      * @var string
      */
-    protected $signature = 'email:newusers {test?} {--test}';
+    protected $signature = 'email:newusers {test?} {--test=default}';
 
     /**
      * The console command description.
