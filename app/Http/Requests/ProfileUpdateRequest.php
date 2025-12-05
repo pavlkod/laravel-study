@@ -27,4 +27,12 @@ class ProfileUpdateRequest extends FormRequest
             ],
         ];
     }
+
+    public function authorize(): bool
+    {
+        $blogPostId = $this->route('blogPost');
+
+        return auth()->check() && BlogPost::where('id', $blogPostId)
+            ->where('user_id', auth()->id())->exists();
+    }
 }
