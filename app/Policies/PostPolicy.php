@@ -11,4 +11,9 @@ class PostPolicy
     {
     }
 
+    public function update($user, $contact)
+    {
+        return $user->id == $contact->user_id;
+    }
+
 }
