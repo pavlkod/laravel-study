@@ -16,4 +16,10 @@ class PostPolicy
         return $user->id == $contact->user_id;
     }
 
+    public function before($user, $ability)
+    {
+        if ($user->isAdmin()) {
+            return true;
+        }
+    }
 }
