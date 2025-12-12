@@ -15,6 +15,10 @@ class BanDeleteMethod
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($request->ip() === '192.168.1.1') {
+            return response('BANNED IP ADDRESS!', 403);
+        }
+
         return $next($request);
     }
 }
