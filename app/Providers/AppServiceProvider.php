@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Post;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //1
-        view()->share('recentPosts', Post::recent());
+        // view()->share('recentPosts', Post::recent());
         // global $recentPosts for all views
 
         //2
@@ -71,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         //creating event
-        $thirdPartyService = new SomeThirdPartyService;
+        /* $thirdPartyService = new SomeThirdPartyService;
         Post::creating(function ($post) use ($thirdPartyService) {
             try {
                 $thirdPartyService->addPost($post);
@@ -79,6 +80,13 @@ class AppServiceProvider extends ServiceProvider
                 Log::error('Failed adding post to ThirdPartyService; canceled. ');
                 return false; //Отменяет create() Eloquent
             }
+        }); */
+
+        // custom response
+        Response::macro('myJson', function ($content) {
+            return response(json_encode($content))
+                ->withHeaders(['Content-Type' => 'application/json']);
         });
+        // response()->myJson(['name' => 'Sangeetha']);
     }
 }
