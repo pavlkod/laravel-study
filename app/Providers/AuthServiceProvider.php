@@ -16,8 +16,35 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      */
-    public function boot(): void
+    public function boot()
     {
-    }
+        // Gate для администраторов
+        Gate::define('access-admin', function ($user) {
+            return $user->role === 'admin';
+        });
+
+        // Gate для модераторов
+        Gate::define('moderate-content', function ($user) {
+            return in_array($user->role, ['admin', 'moderator']);
+        });
+
+        // Gate для обновления поста
+        Gate::define('update-post', function ($user, $post) {
+            return $user->id === $post->user_id || $user->role === 'admin';
+        });
+
+        // Gate для удаления комментария
+        Gate::define('delete-comment', function ($user, $comment) {
+            return $user->id === $comment->user_id
+                || $user->role === 'admin'
+                || $user->role === 'moderator';
+        });
+
+        // Gate с несколькими параметрами
+        Gate::define('edit-settings', function ($user, $project, $setting) {
+            return $user->id === $project->owner_id
+                && in_array($setting, $user->allowed_settings);
+        });
+
 
 }
