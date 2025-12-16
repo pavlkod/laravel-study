@@ -47,4 +47,13 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
+        // global events
+        // Before хук - выполняется перед всеми проверками
+        Gate::before(function ($user, $ability) {
+            // Супер-админ может всё
+            if ($user->role === 'super-admin') {
+                return true;
+            }
+        });
+
 }
