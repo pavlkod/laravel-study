@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -56,4 +57,15 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
+        // After хук - выполняется после всех проверок
+        Gate::after(function ($user, $ability, $result, $arguments) {
+            // Логируем все проверки прав
+            Log::info('Проверка прав', [
+                'user' => $user->id,
+                'ability' => $ability,
+                'result' => $result,
+                'arguments' => $arguments,
+            ]);
+        });
+    }
 }
