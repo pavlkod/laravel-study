@@ -6,6 +6,16 @@ use Illuminate\Support\ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
 {
+    protected $listen = [
+        \App\Events\UserSubscribed::class => [
+            \App\Listeners\EmailOwnerAboutSubscription::class,
+        ],
+    ];
+
+    protected $subscribe = [
+        \App\Listeners\UserEventSubscriber::class
+    ];
+
     /**
      * Register services.
      */
