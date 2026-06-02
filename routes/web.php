@@ -23,6 +23,10 @@ Route::get('/post/{postId}', function($postId) {
     return new Resources\Post(Post::find($postId));
 });
 
+Route::get('/posts', function() {
+    return Resources\Post::collection(Post::all());
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
